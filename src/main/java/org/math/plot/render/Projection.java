@@ -91,7 +91,7 @@ public abstract class Projection {
             if (draw.canvas.base.axesScales[i].equalsIgnoreCase(Base.LOGARITHM)) {
                 normdist_pC_baseCoords = ((FastMath.log(pC[i]) - FastMath.log(draw.canvas.base.baseCoords[0][i])) / (FastMath.log(draw.canvas.base.baseCoords[i + 1][i]) - FastMath.log(draw.canvas.base.baseCoords[0][i])));
             } else if (draw.canvas.base.axesScales[i].equalsIgnoreCase(Base.LINEAR) || draw.canvas.base.axesScales[i].equalsIgnoreCase(Base.STRINGS)) {
-                if(pC!=null && draw.canvas.base.baseCoords!=null && draw.canvas.base.baseCoords[i+1] != null)
+                if(pC!=null && pC.length>i && draw.canvas.base.baseCoords!=null && draw.canvas.base.baseCoords[0].length>i && draw.canvas.base.baseCoords[i+1] != null && draw.canvas.base.baseCoords[i + 1].length>i)
                     normdist_pC_baseCoords = ((pC[i] - draw.canvas.base.baseCoords[0][i]) / (draw.canvas.base.baseCoords[i + 1][i] - draw.canvas.base.baseCoords[0][i]));
             }
             sC[0] += normdist_pC_baseCoords * (baseScreenCoords[i + 1][0] - baseScreenCoords[0][0]);
